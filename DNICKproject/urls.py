@@ -24,6 +24,7 @@ from CoffeeShop.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home, name="home"),
+    path('/', home, name="home"),
     path('products/', products, name="products"),
     path('add_new/', add_new, name="add_new"),
     path('coffee/edit/<int:id>', add_new, name='edit_coffee'),
