@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    {% extends 'header_footer.html' %}
+    {% load static %}
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">#}
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">#}
+</head>
+<body>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 text-center my-auto">
+                <h1 class="color_blue_font w-75 mx-auto mb-4 font_courgette">Make your day
+                    better with a cup of
+                    coffee</h1>
+                <h5 class="color_dark_cream mb-3 font_courgette">grab your favourite coffee
+                    here</h5>
+                <a href="{% url 'products' %}" id="explore_more_btn"
+                   class="btn text-white font_noto rounded-4 my-auto background_color_lightblue font_size_larger blue_btn"
+                   style="opacity: 75%">Explore more
+                </a>
+            </div>
+            <div class="col-6">
+                <img class="w-100 h-100" src="{% static '../images/home/spilled-coffee.jpg' %}" alt="spilled-coffee">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid w-100 h-100">
+        <div class="row"
+             style="background: url({% static '../images/home/blue_background_cup.png' %}) no-repeat;
+                     background-size: cover;
+                     height: 400px;
+                     width: auto;">
+            <div class="col-4"></div>
+            <div class="col-8 text-center my-auto">
+                <h1 class="color_cream font_noto w-75 mb-5">“The most dangerous drinking game is seeing how long I can
+                    go
+                    without
+                    coffee.”</h1>
+                <h3 class="color_cream pt-3 font_courgette">“Life is too short to drink bad
+                    coffee.”</h3>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+</body>
+</html>

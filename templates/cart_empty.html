@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+
+    {% extends 'header_footer.html' %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+
+{% block content %}
+    <div class="container font_noto mt-5">
+        <h2 class="color_blue_font text-center">Your cart is empty</h2>
+        <div class="d-flex justify-content-center">
+            <div class="rounded-4 text-center " style="width: 380px; height: 310px; background-color: #d8e8ee;">
+                <img class="img-fluid mt-4" src="{% static '../images/home/empty-cart.png' %}" alt="empty">
+            </div>
+        </div>
+
+        <a href="{% url 'products' %}" id="explore_more_btn"
+           class="btn text-white font_noto rounded-4 my-auto background_color_lightblue font_size_larger blue_btn me-5"
+           style="opacity: 75%; float: right">Go back to products
+        </a>
+    </div>
+{% endblock content %}
+</body>
+</html>

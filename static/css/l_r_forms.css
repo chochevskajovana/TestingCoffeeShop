@@ -1,0 +1,25 @@
+.background_color_form_card{
+    background-color: #c5dce6;
+}
+
+.submit_button_form{
+    background-color: #3f87a6;
+}
+
+.submit_button_form:hover{
+    background-color: #3f87a6;
+    opacity: 50%;
+}
+
+.background_color_content_in_form{
+    background-color: #a5a29d;
+}
+
+.background_color_content_in_form:hover{
+    background-color: #a5a29d;
+    opacity: 50%;
+}
+
+.color_content_in_form{
+    color: #a5a29d;
+}

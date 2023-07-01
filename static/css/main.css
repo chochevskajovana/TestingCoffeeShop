@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+.font_courgette {
+    font-family: 'Courgette', cursive;
+}
+
+.font_noto {
+    font-family: 'Noto Serif', serif;
+}
+
+.color_cream {
+    color: #F3E8DE;
+}
+
+.background_color_cream {
+    background-color: #F3E8DE;
+}
+
+.color_mdium_cream {
+    color: #E3DFDD;
+}
+
+.color_dark_cream, .page-link {
+    color: #9A8E84;
+}
+
+.background_color_dark_cream {
+    background-color: #9A8E84;
+}
+
+.background_color_for_cards {
+    background-color: #fcf9f7;
+    border-color: #ebe8e5;
+}
+
+.color_lightblue {
+    color: #3C8BAC !important;
+}
+
+.background_color_lightblue, .active .page-link {
+    background-color: #3C8BAC;
+    border: #3C8BAC;
+}
+
+.color_blue_font {
+    color: #136B90;
+}
+
+.background_color_blue_font {
+    background-color: #136B90;
+}
+
+/*for-cart*/
+.chg-quantity {
+    width: 12px;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    transition: .1s;
+}
+
+.filters, .types_collapse {
+    text-decoration: none !important;
+    color: black;
+}
+
+/*for blue btns*/
+.blue_btn:hover {
+    background-color: #3C8BAC !important;
+    opacity: 50% !important;
+}
+
+.brown_edit-add_btn:hover {
+    background-color: #9A8E84 !important;
+    opacity: 50% !important;
+}
+
+.brown_delete_btn:hover {
+    background-color: #9A8E84 !important;
+    opacity: 75% !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link.active {
+    color: #9A8E84 !important;
+}
+
+.test_style {
+    background-color: green;
+    color: pink;
+}
+
+svg {
+    fill: #9a8e84
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#main-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main{
+    flex: 1;
+}
