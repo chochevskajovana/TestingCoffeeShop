@@ -23,7 +23,7 @@
         <h2 class="font_noto color_blue_font text-center mt-3 mb-4">Orders display</h2>
         <div class="row my-3 mx-auto">
             {% for order_checkout in all_orders %}
-                <div class="col-3 mx-5">
+                <div class="col-3 mx-5 order-card">
                     <div class="card rounded-4" style=" background-color:#fcf9f7; border-color: #ebe8e5;">
                         <div class="card-body inline">
                             <h5 class="card-title text-center mb-3 color_lightblue"
@@ -38,7 +38,7 @@
                                 <p>Address: {{ order_checkout.address }} <br/>
                                     Phone: {{ order_checkout.phone }}</p>
                             </div>
-                            <a href="{% url 'delete_order' order_checkout.id %}" class="btn background_color_lightblue text-white rounded-4 text-end blue_btn"
+                            <a href="{% url 'delete_order' order_checkout.id %}" class="delete_order_btn btn background_color_lightblue text-white rounded-4 text-end blue_btn"
                                style="opacity: 75%; float: right">Mark as done</a>
                         </div>
                     </div>
