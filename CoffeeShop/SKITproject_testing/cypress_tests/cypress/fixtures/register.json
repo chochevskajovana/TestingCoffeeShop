@@ -1,0 +1,16 @@
+{
+  "registerData": [
+    {
+      "username": "jovana.jovanova",
+      "email": "jovana@mail.com",
+      "password": "1wax2qsz",
+      "repeat_password": "1wax2qsz"
+    },
+    {
+      "username": "simon.simonovski",
+      "email": "simon@mail.com",
+      "password": "1wax2qsz",
+      "repeat_password": "1wax2qsz"
+    }
+  ]
+}

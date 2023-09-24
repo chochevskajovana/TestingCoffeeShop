@@ -17,6 +17,8 @@ class CreateUserForm(UserCreationForm):
 
 
 class CoffeeForm(forms.ModelForm):
+    image = forms.ImageField(required=False, widget=forms.ClearableFileInput())
+
     def __init__(self, *args, **kwargs):
         super(CoffeeForm, self).__init__(*args, **kwargs)
         for field in self.visible_fields():

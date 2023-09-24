@@ -1,0 +1,9 @@
+{
+  "CheckoutData": [
+    {
+      "name": "Test name",
+      "address": "Test address",
+      "phone": "123456789"
+    }
+  ]
+}

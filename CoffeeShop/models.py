@@ -13,7 +13,7 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=30)
     price = models.IntegerField()
-    image = models.ImageField(upload_to="products/")
+    image = models.ImageField(upload_to="products/", null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -41,7 +41,7 @@ class Order(models.Model):
     complete = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.customer.user} - {str(self.id)}"
+        return f"{self.customer.user.username} - {str(self.id)}"
 
     @property
     def get_cart_total(self):
@@ -84,5 +84,5 @@ class Checkout(models.Model):
     address = models.CharField(max_length=60, null=True, blank=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
 
-    # def __str__(self):
-    #     return f"{self.name} {self.surname}: {self.order.id}"
+    def __str__(self):
+        return f"{self.name} - {self.address} : {self.order.id}"

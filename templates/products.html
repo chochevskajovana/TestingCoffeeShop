@@ -20,7 +20,7 @@
             <div class="col-3" style="background-color: #3C8BAC; opacity: 50%">
                 <div class="mt-4 mb-2 row">
                     <form method="POST" class="d-flex" action="{% url 'search_feature' %}">
-                        {% csrf_token %}
+{#                        {% csrf_token %}#}
                         <label for="search" class="col-sm-2 col-form-label" hidden>Search label</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control me-2" id="inputPassword" placeholder="Search"
@@ -68,7 +68,7 @@
                     <h2 class="color_lightblue font_noto me-3" style="font-weight: bold">"It's coffee o'clock."</h2>
                     <div class="my-auto" style="opacity: 75%">
                         {% if request.user|has_group:"seller" %}
-                            <a href="{% url 'add_new' %}" type="button"
+                            <a href="{% url 'add_new' %}" type="button" id="add_new_product"
                                class="btn background_color_dark_cream rounded-4 text-white font_noto rounded-4 py-1 px-2 brown_edit-add_btn">
                                 Add new product
                             </a>
@@ -81,8 +81,13 @@
                         <div class="col-3 mb-4">
                             <div class="" style="width: 205px">
                                 <div class="ms-3">
-                                    <img src="{{ coffee.image.url }}" alt="coffee image">
+                                    {% if coffee.image %}
+                                        <img src="{{ coffee.image.url }}" alt="coffee image">
+                                    {% else %}
+                                        <p>No image available</p>
+                                    {% endif %}
                                 </div>
+
                                 <div class="inline mb-4">
                                     <p style="float: left">{{ coffee.name }}</p>
                                     <p class="" style="float: right">${{ coffee.price }}</p>
@@ -92,23 +97,23 @@
                                 <div style="display: inline-flex;">
                                     {% if request.user|has_group:"seller" %}
                                         <a href="{% url 'edit_coffee' coffee.id %}" type="button" id="edit"
-                                           class="btn text-white font_noto rounded-4 my-auto background_color_dark_cream py-1 px-2 me-2 brown_edit-add_btn"
+                                           class="editProject btn text-white font_noto rounded-4 my-auto background_color_dark_cream py-1 px-2 me-2 brown_edit-add_btn"
                                            style="opacity: 75%">Edit
                                         </a>
                                     {% endif %}
                                     {% if request.user|has_group:"customer" %}
                                         <form method="post" action="{% url 'add_to_cart' %}">
-                                            {% csrf_token %}
+{#                                            {% csrf_token %}#}
                                             <input type="hidden" name="coffee_id" value="{{ coffee.id }}">
                                             <button id="add_to_cart" type="submit"
-                                                    class="btn text-white font_noto rounded-4 my-auto background_color_lightblue py-1 px-2 me-2 blue_btn"
+                                                    class="addProductToCart btn text-white font_noto rounded-4 my-auto background_color_lightblue py-1 px-2 me-2 blue_btn"
                                                     style="opacity: 75%">Add to cart
                                             </button>
                                         </form>
                                     {% endif %}
                                     {% if request.user|has_group:"seller" %}
                                         <a href="{% url 'delete_coffee' coffee.id %}" type="button" id="delete"
-                                           class="btn text-white font_noto rounded-4 my-auto background_color_dark_cream py-1 px-1 brown_delete_btn">Delete
+                                           class="deleteProject btn text-white font_noto rounded-4 my-auto background_color_dark_cream py-1 px-1 brown_delete_btn">Delete
                                         </a>
                                     {% endif %}
                                 </div>
@@ -139,7 +144,7 @@
                         {% endfor %}
                         {% if coffees.has_next %}
                             <li class="page-item">
-                                <a href="{% url 'products' %}?page={{ coffees.next_page_number }}" class="page-link">Next</a>
+                                <a href="{% url 'products' %}?page={{ coffees.next_page_number }}" class="page-link" id="next_product_page">Next</a>
                             </li>
                         {% endif %}
                     </ul>

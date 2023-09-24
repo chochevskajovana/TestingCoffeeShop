@@ -1,0 +1,9 @@
+{
+  "addProjectToCartData": [
+    {
+      "name": "Cappuccino",
+      "price": "37",
+      "image": "CoffeeShop/SKITproject_testing/cypress_tests/cypress/fixtures/cappuchino.png"
+    }
+  ]
+}

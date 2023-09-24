@@ -30,10 +30,10 @@ def products(request):
         page = p.page(1)
 
     context = {'coffees': page, 'coffee_names': coffee_names, 'flavour_names': flavour_names}
-    return render(request, "products.html", context)
+    return render(request, "products.html", context=context)
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['seller'])
 def add_new(request, id=0):
     if request.method == "POST":
@@ -56,7 +56,7 @@ def add_new(request, id=0):
     return render(request, "add_new.html", context=context)
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['seller'])
 def delete_coffee(request, id=0):
     coffee = Product.objects.get(pk=id)
@@ -77,7 +77,7 @@ def search_feature(request):
         return render(request, 'products.html', {})
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def add_to_cart(request, id=0):
     if request.method == 'POST':
@@ -106,7 +106,7 @@ def is_superuser(user):
     return user.is_superuser
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def cart(request):
     flavours = Flavours.objects.all()
@@ -124,13 +124,13 @@ def cart(request):
     return render(request, "cart.html", context)
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def cart_empty(request):
     return render(request, "cart_empty.html")
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def increase_quantity(request, id):
     order_item = OrderItem.objects.get(pk=id)
@@ -139,7 +139,7 @@ def increase_quantity(request, id):
     return redirect('cart')
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def decrease_quantity(request, id):
     order_item = OrderItem.objects.get(pk=id)
@@ -151,7 +151,7 @@ def decrease_quantity(request, id):
     return redirect('cart')
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def increase_servings(request, id):
     order_item = OrderItem.objects.get(pk=id)
@@ -160,7 +160,7 @@ def increase_servings(request, id):
     return redirect('cart')
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def decrease_servings(request, id):
     order_item = OrderItem.objects.get(pk=id)
@@ -172,7 +172,7 @@ def decrease_servings(request, id):
     return redirect('cart')
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['seller'])
 def orders(request):
     all_orders = Checkout.objects.all()
@@ -180,7 +180,7 @@ def orders(request):
     return render(request, "orders.html", context)
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['seller', 'customer'])
 def delete_order_item(request, id=0):
     order_item = OrderItem.objects.get(pk=id)
@@ -188,7 +188,7 @@ def delete_order_item(request, id=0):
     return redirect('cart')
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def delete_order(request, id=0):
     order_to_delete = Checkout.objects.get(pk=id)
@@ -196,7 +196,7 @@ def delete_order(request, id=0):
     return redirect('orders')
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def check_out(request):
     if request.user.is_authenticated:
@@ -232,7 +232,7 @@ def check_out(request):
     return render(request, "check_out.html", context)
 
 
-@login_required(login_url='loginPage')
+@login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def confirmation(request):
     return render(request, "confirmation.html")

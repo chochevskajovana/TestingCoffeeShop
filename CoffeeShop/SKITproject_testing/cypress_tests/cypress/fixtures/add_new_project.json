@@ -1,0 +1,9 @@
+{
+  "addNewProjectData": [
+    {
+      "name": "Test Coffee",
+      "price": "20",
+      "image": "CoffeeShop/SKITproject_testing/cypress_tests/cypress/fixtures/cappuchino.png"
+    }
+  ]
+}
